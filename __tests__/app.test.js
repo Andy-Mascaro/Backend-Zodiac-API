@@ -8,6 +8,17 @@ describe('Backend-Zodiac-API routes', () => {
     return setup(pool);
   });
 
+  it('/zodiac should return a list of signs', async () => {
+    const res = await request(app).get('/zodiac/1');
+    const aquarius = {
+      id: '1',
+      name: 'aquarius',
+      dates: 'Jan 21 - Feb 19',
+      symbol: 'Water Bearer',
+    };
+    expect(res.body).toEqual(aquarius);
+  });
+
   afterAll(() => {
     pool.end();
   });
