@@ -15,8 +15,6 @@ describe('Backend-Zodiac-API routes', () => {
       return {
         id: info.id,
         name: info.name,
-        dates: info.dates,
-        symbol: info.symbol,
       };
     });
     expect(res.body).toEqual(expected);
