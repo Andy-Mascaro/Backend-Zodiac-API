@@ -12,7 +12,12 @@ describe('Backend-Zodiac-API routes', () => {
   it('/zodiac should return a list of signs', async () => {
     const res = await request(app).get('/zodiac');
     const expected = zodiac.map((info) => {
-      return { id: info.id, name: info.name };
+      return {
+        id: info.id,
+        name: info.name,
+        dates: info.dates,
+        symbol: info.symbol,
+      };
     });
     expect(res.body).toEqual(expected);
   });
